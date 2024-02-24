@@ -114,6 +114,7 @@ def AutoSpearman(X_train, correlation_threshold=0.7, correlation_method='spearma
 
     # print('Finally, according to Part 2 of AutoSpearman,',
     #       X_AS_train.columns, 'are selected.')
-    X_AS_train = X_AS_train.drop('const', axis=1)
+    if 'const' in X_AS_train.columns:
+        X_AS_train = X_AS_train.drop('const', axis=1)
     X_AS_train = X_AS_train.sort_index(axis=1)
     return X_AS_train
